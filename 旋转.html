@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 制作动画 ，让图片旋转  */
+        @keyframes rotate {
+            from{
+                transform: rotateY(0);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+
+        }
+        /* 增添透视功能 */
+        body{
+            perspective: 1000px;
+        }
+        /* 进行定位，将盒子的宽高设置为图片的大小， 图片的大小会影响整体的选择效果  */
+        section{
+            position: relative;
+            width: 500px;
+            height: 313px;
+            margin: 200px auto;
+            transform-style: preserve-3d;
+            /*  设置动画属性 名称  时间  运动方式   无线循环*/
+            animation: rotate  10s linear infinite;
+        }
+        section:hover{
+            /* 增添鼠标放上暂停 */
+            animation-play-state: paused;
+        }
+        section div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /*background: url(img/jpg/4.jpg) no-repeat;*/
+            /* ，no-repeat 则不允许图像在任何方向上平铺。默认地，背景图像将从一个元素的左上角开始 */
+        }
+
+        /* 调整旋转的角度 和移动的位置  */
+        section div:nth-last-child(1){
+            transform: translateZ(500px);
+        }
+        section div:nth-last-child(2){
+            transform:rotateY(60deg)  translateZ(500px)   ;
+        }
+        section div:nth-last-child(3){
+            transform:rotateY(120deg)    translateZ(500px);
+        }
+        section div:nth-last-child(4){
+            transform:rotateY(180deg)    translateZ(500px);
+        }
+        section div:nth-last-child(5){
+            transform:rotateY(240deg)    translateZ(500px);
+        }
+        section div:nth-last-child(6){
+            transform:rotateY(300deg)    translateZ(500px);
+        }
+
+    </style>
+</head>
+<body>
+<section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</section>
+</body>
+</html>
